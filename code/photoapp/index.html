@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Knockout.js Photoapp</title>
+    <link rel="stylesheet" href="css/light.css" />
+</head>
+<body>
+    <article id="photoapp" data-bind="click: stopEditing">
+        <!-- ko if: title && desc -->
+            <header>
+                <h1 data-bind="text: titleAndDate"></h1>
+                <p data-bind="click: makeEditable, clickBubble: false, editableContent: desc" class="editable"></p>
+            </header>
+        <!-- /ko -->
+        <div class="controls">
+            <label for="sort">Sort by: </label>
+            <select id="sorts" data-bind="foreach: sorts, event: { change: sortHandler }">
+                <option data-bind="text: name, value: name"></option>
+            </select>
+            <label for="filter">Filter by: </label>
+            <input id="filter" data-bind="value: filterTerm" />
+            <button data-bind="visible: showButton, click: serialise" class="save">Save changes</button>
+        </div>
+        <section role="main" class="photos" data-bind="foreach: photos">
+            <figure>
+                <img data-bind="attr: { src: url, alt: 'A picture of ' + title }, click: $root.showLightbox" />
+                <figcaption><span data-bind="click: $root.makeEditable, clickBubble: false, editableContent: title" class="editable"></span></figcaption>
+            </figure>
+        </section>
+        <!-- ko if: lightboxVisible -->
+            <div class="modal"></div>
+            <div class="lightbox">
+                <a href="#" title="Close" data-bind="click: closeLightbox, clickBubble: false">x</a>
+                <img data-bind="attr: { src: lightbox.url, alt: lightbox.title }" />
+            </div>
+        <!-- /ko -->
+    </article>
+    <script src="js/jquery-2.0.2.min.js"></script>   
+    <script src="js/knockout-2.2.1.js"></script>
+    <script src="js/photoapp.js"></script>
+    <script>
+        var myphotoapp = new Photoapp({
+            apiKey: 'f6146b5aea320305af01030c6fc04c59',
+            photosetId: '72157634447534463'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿html { height: 100%; }
+body { padding: 0; margin: 0; height: 100%; }
+#photoapp header { padding: 1em 1em .5em; border-bottom: 2px solid #ddd; background: #f9f9f9; font-family: sans-serif; }
+#photoapp header h1 { margin: 0 0 .75em 0; }
+#photoapp header h1.editable:hover:before { left:-.15em; }
+#photoapp header h1.editable:hover:after { top:-.5em; font-size:.5em; line-height:3em; }
+#photoapp header p { margin-top: 0; }
+#photoapp header h1:before, #photoapp header p:before { border-color: #000; border-radius: 3px; }
+#photoapp header h1:after, #photoapp header p:after { background: #000; color: #fff; }
+#photoapp .controls { padding: 1em; border-bottom: 2px solid #ddd; background: #f9f9f9; font-family: sans-serif; }
+#photoapp .controls .save { float:right; }
+#photoapp .photos { padding: .5em 1em; }
+#photoapp .photos figure { margin: 1em 1.5em .5em 0; position: relative; float: left; }
+#photoapp .photos figure:nth-child(3n + 3) { margin-right: 0; }
+#photoapp .photos figure img { display: block; }
+#photoapp .photos figcaption { box-sizing: border-box; width: 100%; padding: 1em; position: absolute; bottom: 0; left: 0; background:rgba(0,0,0,.5); color: #fff; font-family: sans-serif; font-weight:bold; }
+#photoapp .photos figcaption span { display: block; }
+#photoapp .photos figcaption span:before { border-color:#fff; }
+#photoapp .photos figcaption span:after { background: #fff; color: #000; }
+
+#photoapp .editable { position: relative; }
+#photoapp .editable:focus { outline: none; }
+#photoapp .editable:hover { cursor: pointer; }
+#photoapp .editing:hover { cursor: text; }
+#photoapp .editable:hover:before, #photoapp .editing:before { width: 100%; height: 1.75em; border: 1px solid; border-radius: 3px; content:""; position: absolute; top: -.25em; left: -.25em; }
+#photoapp .editable:hover:after, #photoapp .editing:after { display: inline-block; padding: .35em; content:"Click to edit"; position: absolute; top: -.25em; right: .15em; font-size: .7em; line-height: 1.8em; }
+#photoapp .editing:after, #photoapp .editing:hover:after { display: none; }
+
+#photoapp .modal { width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,.5); z-index: 100; }
+#photoapp .lightbox { margin-left: -512px; margin-top: -288px; position: absolute; top: 50%; left: 50%; box-shadow: rgba(0,0,0,.5) 4px 4px 10px; z-index: 101; }
+#photoapp .lightbox img { display: block; }
+#photoapp .lightbox a { width: 30px; border-radius: 100px; position: absolute; top:-10px; right: -10px; background-color: #000; color: #fff; font-weight: bold; font-family: sans-serif; font-size: 20px; line-height: 29px; text-align: center; text-decoration: none; }
