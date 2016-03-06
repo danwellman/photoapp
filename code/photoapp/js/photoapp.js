@@ -21,7 +21,7 @@ function Photoapp(config) {
     var managePromise, manageOptions, addWindowHandler, buildRequestUrl, handleDetails, handlePhotos, getImageUrl, defaultSort, titleSort,
         that = this,
         defaults = {
-            base: 'http://api.flickr.com/services/rest/?format=json',
+            base: 'https://api.flickr.com/services/rest/?format=json',
             imageSize: 'd',
             sorts: []
         };
